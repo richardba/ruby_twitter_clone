@@ -1,0 +1,35 @@
+<div class="user-profile">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="pt-2 px-3 border-right">
+      <p class="text-center pb-0 mb-0 font-weight-bold twitter-color tx-big"><%= @posts.count %></p>
+      <p class="text-muted text-center pt-0 mt-0">Posts</p>
+    </div>
+    <div class="pt-2 py-0 px-3 border-right">
+      <p class="text-center pb-0 mb-0 font-weight-bold twitter-color tx-big"><%= current_user.following.count %></p>
+      <p class="text-muted text-center pt-0 mt-0">Following</p>
+    </div>
+    <div class="pt-2 py-0 px-3">
+      <p class="text-center pb-0 mb-0 font-weight-bold twitter-color tx-big"><%= current_user.followers.count %></p>
+      <p class="text-muted text-center pt-0 mt-0">Followers</p>
+    </div>
+    <% if current_user != @profile %>
+      <div class="pt-2 py-0 px-3">
+        <button type="button">Follow</button>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="user-post">
+  <% @posts.reverse.each do |post| %>
+    <tr>
+      <td><h2><%= post.user.name %> @<%= post.user.username %><h2></td>
+      <td><h2><%= post.body %></h2></td>
+      <td><h3><%= post.created_at %></h3></td>
+        <% if current_user == post.user %>
+          <td><h4><%= link_to "Delete", post_path(post.id), :confirm => "Are you sure?", :method => :delete %></h4></td>
+        <% end %>
+    </tr>
+  <% end %>
+</div>
+
+<%= link_to 'New post', new_post_path(@user) %>
