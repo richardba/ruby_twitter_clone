@@ -12,7 +12,7 @@
       <p class="text-center pb-0 mb-0 font-weight-bold twitter-color tx-big"><%= current_user.followers.count %></p>
       <p class="text-muted text-center pt-0 mt-0">Followers</p>
     </div>
-    <% if current_user != @profile %>
+    <% if current_user != @user %>
       <div class="pt-2 py-0 px-3">
         <button type="button">Follow</button>
       </div>

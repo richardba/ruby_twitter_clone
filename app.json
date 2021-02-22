@@ -1,0 +1,8 @@
+{
+  "name": "Desafio técnico para desenvolvedores",
+  "description": "App clone Twitter",
+  "image": "heroku/ruby",
+  "repository": "https://github.com/richardba/twitter_clone",
+  "keywords": ["ruby", "rails" ],
+  "addons": ["heroku-postgresql"]
+}
